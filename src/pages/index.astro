@@ -1,0 +1,31 @@
+---
+import Layout         from '../layouts/Layout.astro';
+import Header         from '../components/Header.astro';
+import Hero           from '../components/Hero.astro';
+import ValorPropuesta from '../components/ValorPropuesta.astro';
+import Especialidades from '../components/Especialidades.astro';
+import SobreElDr      from '../components/SobreElDr.astro';
+import Testimoniales  from '../components/Testimoniales.astro';
+import BlogPreview    from '../components/BlogPreview.astro';
+import CTAFinal       from '../components/CTAFinal.astro';
+import Footer         from '../components/Footer.astro';
+import WhatsAppFloat  from '../components/WhatsAppFloat.astro';
+---
+
+<Layout
+  title="Dr. Alan Polanco | Especialista en Medicina del Deporte · CDMX"
+  description="Médico especialista en Medicina del Deporte — UNAM, IPN, FIFA Diploma. Director QP Clinic. Prescripción de ejercicio, rendimiento deportivo y salud integral. Consultas en CDMX."
+>
+  <Header />
+  <main>
+    <Hero />
+    <ValorPropuesta />
+    <Especialidades />
+    <SobreElDr />
+    <Testimoniales />
+    <BlogPreview />
+    <CTAFinal />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</Layout>
