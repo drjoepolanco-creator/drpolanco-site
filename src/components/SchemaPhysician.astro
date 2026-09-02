@@ -1,0 +1,36 @@
+---
+// Datos estructurados del médico.
+// Regla: solo se declara aquí lo que el visitante puede ver en la página.
+// Cuando publiques dirección, teléfono y horarios en el footer,
+// añade aquí "address", "telephone" y "openingHours".
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  name: 'Dr. José Alan Polanco Fierro',
+  alternateName: 'Dr. Alan Polanco',
+  url: 'https://www.dralanpolanco.com',
+  image: 'https://www.dralanpolanco.com/images/dr-polanco-hero.jpg',
+  email: 'dr.polanco@qpclinic.mx',
+  medicalSpecialty: 'SportsMedicine',
+  areaServed: {
+    '@type': 'City',
+    name: 'Ciudad de México',
+  },
+  worksFor: {
+    '@type': 'MedicalClinic',
+    name: 'QP Clinic',
+  },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Universidad Nacional Autónoma de México' },
+    { '@type': 'CollegeOrUniversity', name: 'Instituto Politécnico Nacional' },
+  ],
+  sameAs: [
+    'https://www.instagram.com/dralanpolanco/',
+    'https://www.tiktok.com/@dralanpolanco',
+    'https://www.facebook.com/profile.php?id=100078909799375',
+    'https://www.doctoralia.com.mx/jose-alan-polanco-fierro/especialista-en-medicina-del-deporte/benito-juarez',
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
