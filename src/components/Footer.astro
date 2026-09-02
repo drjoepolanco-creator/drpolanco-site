@@ -1,10 +1,10 @@
 ---
 const nav = [
-  { label: 'Inicio',         href: '#inicio' },
-  { label: 'Servicios', href: '#especialidades' },
-  { label: 'Sobre mí',       href: '#sobre-mi' },
-  { label: 'Blog',           href: '#blog' },
-  { label: 'Contacto',       href: '#contacto' },
+  { label: 'Inicio',    href: '/' },
+  { label: 'Servicios', href: '/#especialidades' },
+  { label: 'Sobre mí',  href: '/sobre-mi' },
+  { label: 'Blog',      href: '/blog' },
+  { label: 'Contacto',  href: '/#contacto' },
 ];
 
 const especialidades = [
@@ -92,7 +92,7 @@ const redes = [
         <ul class="flex flex-col gap-2.5">
           {especialidades.map(e => (
             <li>
-              <a href="#especialidades" class="text-sm text-white/60 hover:text-white transition-colors duration-200">
+              <a href="/#especialidades" class="text-sm text-white/60 hover:text-white transition-colors duration-200">
                 {e}
               </a>
             </li>

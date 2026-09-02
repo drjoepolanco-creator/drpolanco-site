@@ -27,7 +27,13 @@ const categories: Record<string, string> = {
 const slug = post.id.replace(/\.(md|mdx)$/, '');
 ---
 
-<Layout title={`${post.data.title} | Dr. Alan Polanco`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} | Dr. Alan Polanco`}
+  description={post.data.description}
+  image={post.data.image}
+  type="article"
+  publishedTime={post.data.pubDate}
+>
   <Header />
   <main class="pt-16 md:pt-20">
 

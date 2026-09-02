@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://dralanpolanco.com',
+  site: 'https://www.dralanpolanco.com',
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
