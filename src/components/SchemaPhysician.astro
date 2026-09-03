@@ -3,15 +3,24 @@
 // Regla: solo se declara aquí lo que el visitante puede ver en la página.
 // Cuando publiques dirección, teléfono y horarios en el footer,
 // añade aquí "address", "telephone" y "openingHours".
+import { PHYSICIAN_ID } from '../lib/schema';
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
+  '@id': PHYSICIAN_ID,
   name: 'Dr. José Alan Polanco Fierro',
   alternateName: 'Dr. Alan Polanco',
   url: 'https://www.dralanpolanco.com',
   image: 'https://www.dralanpolanco.com/images/dr-polanco-hero.jpg',
   email: 'dr.polanco@qpclinic.mx',
   medicalSpecialty: 'SportsMedicine',
+  // Cédula visible en el pie de todas las páginas.
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'Cédula Profesional de Especialidad (México)',
+    value: '10861477',
+  },
   areaServed: {
     '@type': 'City',
     name: 'Ciudad de México',
@@ -29,6 +38,8 @@ const schema = {
     'https://www.tiktok.com/@dralanpolanco',
     'https://www.facebook.com/profile.php?id=100078909799375',
     'https://www.doctoralia.com.mx/jose-alan-polanco-fierro/especialista-en-medicina-del-deporte/benito-juarez',
+    'https://www.doctoranytime.mx/d/especialista-en-medicina-del-deporte/jose-alan-polanco-fierro',
+    'https://mx.linkedin.com/in/alan-polanco-136267112',
   ],
 };
 ---

@@ -3,6 +3,10 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { categoryLabel } from '../../lib/categories';
+import SchemaPhysician from '../../components/SchemaPhysician.astro';
+import SchemaArticle from '../../components/SchemaArticle.astro';
+import { SITE_URL } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -17,14 +21,10 @@ const { Content } = await render(post);
 
 const WA = "https://wa.me/525644237028?text=Hola%20Dr.%20Polanco%2C%20le%C3%AD%20su%20art%C3%ADculo%20y%20me%20gustar%C3%ADa%20agendar%20una%20consulta.";
 
-const categories: Record<string, string> = {
-  'control-de-peso':      'Control de peso',
-  'medicina-del-deporte': 'Medicina del Deporte',
-  'prevencion':           'Prevención y Rehabilitación',
-  'ciencia-aplicada':     'Ciencia Aplicada',
-};
 
 const slug = post.id.replace(/\.(md|mdx)$/, '');
+// Debe coincidir exactamente con el canonical que genera el Layout.
+const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 ---
 
 <Layout
@@ -34,6 +34,16 @@ const slug = post.id.replace(/\.(md|mdx)$/, '');
   type="article"
   publishedTime={post.data.pubDate}
 >
+  <SchemaPhysician slot="head" />
+  <SchemaArticle
+    slot="head"
+    title={post.data.title}
+    description={post.data.description}
+    pubDate={post.data.pubDate}
+    category={post.data.category}
+    image={post.data.image}
+    url={canonical}
+  />
   <Header />
   <main class="pt-16 md:pt-20">
 
@@ -48,7 +58,7 @@ const slug = post.id.replace(/\.(md|mdx)$/, '');
           <a href="/blog" class="hover:text-primary transition-colors">Blog</a>
           <span class="text-gray-300">/</span>
           <span class="font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-            {categories[post.data.category] ?? post.data.category}
+            {categoryLabel(post.data.category)}
           </span>
         </nav>
 
