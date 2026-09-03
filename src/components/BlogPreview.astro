@@ -1,17 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
+import { categoryLabel } from '../lib/categories';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const categories: Record<string, string> = {
-  'control-de-peso':      'Control de peso',
-  'medicina-del-deporte': 'Medicina del Deporte',
-  'prevencion':           'Prevención y Rehabilitación',
-  'ciencia-aplicada':     'Ciencia Aplicada',
-};
 ---
 
 <section id="blog" class="bg-surface py-16 md:py-24">
@@ -59,7 +54,7 @@ const categories: Record<string, string> = {
             <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
                 <span class="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                  {categories[post.data.category] ?? post.data.category}
+                  {categoryLabel(post.data.category)}
                 </span>
                 <span class="text-xs text-muted">
                   {post.data.pubDate.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' })}
